@@ -1,0 +1,19 @@
+{
+    "name": "sergi/cats_mvc",
+    "description": "\"Protectora de gats\"",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\CatsMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sergi",
+            "email": "sergi@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

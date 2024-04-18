@@ -1,0 +1,143 @@
+body {
+    background: #d9a7c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fffcdc, #d9a7c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+/*HOME.PHP,LOGIN.PHP,REGISTER.PHP*/
+
+
+
+
+
+.navbar-brand {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.fa-solid {
+    font-size: 60px;
+}
+
+.container {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-footer {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+.fa-brands{
+    font-size: 25px;
+}
+
+
+/*LOGIN.PHP,REGISTER.PHP*/
+
+#loginform,
+#registerform {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+
+
+/*ADMIN */
+/*DASHBOARD.PHP */
+#allcats,
+#allusers {
+    font-size: 20px;
+}
+
+.delete,
+.edit {
+    font-size: 25px;
+}
+
+.add {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+
+}
+
+/*USERS.PHP */
+
+/*EDITCAT.PHP*/
+
+#editcat,
+#edituser {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+/*ADOPTCAT.PHP*/
+
+#cat_img{
+    width: 400px;
+     height: 300px;
+     margin-top: 20px;
+     margin-right: auto;
+    margin-left: auto;
+}
+.container-cat{
+    
+    padding: 30px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.card{
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.back-to-cats{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.like-to-know{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.description-text{
+    text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-device-width : 480px) {
+    .fa-brands{
+        margin-bottom: 2px;
+    }
+    
+
+}
