@@ -52,11 +52,11 @@ $cat_description = $_GET['descr'];*/
                         </div>
                         <div class="form-group mt-3">
                             <label for="name" class="form-label">Name</label>
-                            <input class="form-control text-muted" name="cat_name" type="text" id="name" value="<?php echo $data['cat_name'] ?>">
+                            <input class="form-control" readonly name="cat_name" type="text" id="name" value="<?php echo $data['cat_name'] ?>">
                         </div>
                         <div class="form-group mt-3">
                             <label for="formFile" class="form-label">Sex</label>
-                            <input class="form-control text-muted" name="cat_sex" type="text" text id="sex" value="<?php echo $data['cat_sex'] ?>">
+                            <input class="form-control" readonly name="cat_sex" type="text" text id="sex" value="<?php echo $data['cat_sex'] ?>">
                         </div>
                         <div class="form-group mt-3">
                             <label for="formFile" class="form-label">Age</label>

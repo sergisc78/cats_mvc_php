@@ -25,7 +25,8 @@
   <!-- STYLES -->
   <link rel="stylesheet" href="../../../../cats_mvc/public/css/styles.css">
 
-
+  <!-- JS VALIDATIONS -->
+  <script src="../../../../cats_mvc/public/js/meetCat.js"></script>
 
   <!--DATATABLES CSS-->
 
@@ -99,6 +100,9 @@
             <!-- <a class="nav-link active" aria-current="page" href="../../views/admin/dashboard.php">Home</a>-->
             <a class="nav-link" href="#">User: <?php echo " " . $_SESSION["username"]; ?></a>
           </li>
+          <li class="nav-item">
+                        <a class="nav-link" href="<?php echo URL?>/user/yourRequest">Your Request</a>
+                    </li>
         </ul>
         <form class="d-flex" role="search">
           <a href="<?php echo URL ?>/user/logout" type="button" class="btn btn-outline-primary btn-lg">Logout</a>

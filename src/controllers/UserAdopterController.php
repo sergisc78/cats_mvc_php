@@ -9,22 +9,33 @@ use Sergi\CatsMvc\models\UserAdopter;
 use Sergi\CatsMvc\models\Admin;
 
 
-class UserAdopterController extends Controller{
 
 
 
-  public static function getCats(){
 
-    $cats=new UserAdopter();
-    $cats=$cats->getCats();
+class UserAdopterController extends Controller
+{
 
-    self::view('user/cats',$cats);
+
+
+  public static function getCats()
+  {
+
+    $cats = new UserAdopter();
+    $cats = $cats->getCats();
+
+
+
+
+    self::view('user/cats', $cats);
   }
 
-  public static function getCatById($id){
+  public static function getCatById($id)
+  {
 
-    $cat=new UserAdopter();
-    $cat=$cat->getCatById($id);
+    $cat = new UserAdopter();
+    $cat = $cat->getCatById($id);
+
 
     $data = [
       "id" => $cat['id'],
@@ -35,26 +46,59 @@ class UserAdopterController extends Controller{
       "cat_image" => $cat['cat_image'],
       "cat_description" => $cat['cat_description']
 
-  ];
+    ];
 
-    self::view('user/adoptCat',$data);
+
+    self::view('user/cat', $data);
   }
 
-  public static function adoptCat($id){
+  public static function formMeetCat($id)
+  {
 
-    $user=new Admin();
-    $user=$user->getUserById($id);
 
-    $cat=new UserAdopter();
-    $cat=$cat->adoptCat($_POST);
+    $cat = new UserAdopter();
+    $cat = $cat->getCatById($id);
+
+    $user = new UserAdopter();
+    $user->formMeetCat($_POST);
+
 
     $data = [
-      "user_id" => $cat['user_id'],
-      "cat_id" => $cat['cat_id'],
-      
+      "id" => $cat['id'],
+      "cat_name" => $cat['cat_name'],
 
-  ];
 
-    self::view('user/adoptCat',$data);
+
+    ];
+
+
+    self::view('user/meetCat', $data);
+  }
+
+  public static function yourRequest()
+  {
+
+    /*$user = new Admin();
+    $user = $user->viewEditUserInterested($username);*/
+
+   /* $data = [
+      "username" => $user['username'],
+      "cat_name" => $user['cat_name'],
+      "email" => $user['email'],
+      "comments" => $user['comments'],
+
+    ];*/
+
+    self::view('user/yourRequest');
+  }
+
+  public static function logout()
+  {
+
+    $user = new UserAdopter();
+    $user->logout();
+
+
+    self::view('user/logout');
   }
 }

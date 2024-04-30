@@ -105,6 +105,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo URL?>/admin/dashboard">Cats</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo URL?>/admin/user/users-interested">Users interested to adopt</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <a href="<?php echo URL?>/admin/logout" type="button" class="btn btn-outline-primary btn-lg">Logout</a>

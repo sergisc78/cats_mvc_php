@@ -68,14 +68,10 @@ class Admin
             $location = '/opt/lampp/htdocs/cats_mvc/public/img/' . $cat_image;
 
 
-            // $cat_image = $_POST['cat_image'];
 
-            //$this->getConnection();
             $sql_select = "SELECT * FROM cats WHERE cat_name=?";
             $result = $this->db->prepare($sql_select);
             $result->bindParam(1, $cat_name);
-
-
             $result->execute();
             $count = $result->rowCount();
 
@@ -362,6 +358,95 @@ class Admin
             </div>';
 
             header("refresh:3;url=http://localhost:81/cats_mvc/admin/user/deleteUser");
+        }
+    }
+
+    public function getUsersInterested()
+    {
+
+        $sql = "SELECT * FROM formMeetCat; ";
+        $result = $this->db->prepare($sql);
+        $result->execute();
+        return $result->fetchAll();
+    }
+
+    public function getUserInterestedById($id)
+    {
+
+        $sql = "SELECT * FROM formMeetCat WHERE id=:id ";
+        $result = $this->db->prepare($sql);
+        $result->bindValue(":id", $id);
+        $result->execute();
+        return $result->fetch();
+    }
+
+    public function viewEditUserInterested()
+    {
+
+
+        /* $username = isset($_POST['username']) ? $_POST['usernmae'] : '';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $id = isset($_POST['id']) ? $_POST['id'] : '';
+        $id = isset($_POST['id']) ? $_POST['id'] : '';*/
+
+
+
+        if (isset($_POST['edit'])) {
+
+
+            $id = isset($_POST['id']) ? $_POST['id'] : '';
+            $contacted = isset($_POST['contacted']) ? $_POST['contacted'] : '';
+
+
+
+            $sql_update = "UPDATE formMeetCat SET contacted=:contacted WHERE id=:id";
+            $result = $this->db->prepare($sql_update);
+            $result->bindParam(':id', $id);
+            $result->bindParam(':contacted', $contacted);
+            $result->execute();
+
+            if ($result) {
+                echo '<div class="alert alert-success alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat,sans-serif;">
+                User Interested updated successfully !
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+
+
+                header("refresh:3;url=http://localhost:81/cats_mvc/admin/user/users-interested");
+            } else {
+                echo '<div class="alert alert-danger alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat, sans-serif;">
+                 Something wrong happened !
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+
+                header("refresh:3;");
+            }
+        }
+    }
+
+    public function deleteUserInterested($id)
+    {
+        
+
+        $sql_delete = "DELETE FROM formMeetCat WHERE id=:id";
+        $result = $this->db->prepare($sql_delete);
+        $result->bindParam(':id', $id);
+        $result->execute();
+
+        if ($result) {
+            echo '<div class="alert alert-success alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat,sans-serif;">
+            User request delated successfully !
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+
+            header("refresh:3,url=http://localhost:81/cats_mvc/admin/user/users-interested");
+        } else {
+            echo '<div class="alert alert-danger alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat, sans-serif;">
+            User request can not be delated !. Something wrong happened !
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+
+            header("refresh:3;url=http://localhost:81/cats_mvc/admin/user/deleteUserInterested");
         }
     }
 

@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 
 error_reporting(E_ALL);
 
-require_once("./src/views/templates/adminNav.php");
+require_once("./src/views/templates/adminUser.php");
 
 ?>
 

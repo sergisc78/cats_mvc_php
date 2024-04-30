@@ -352,6 +352,144 @@ class AdminController extends Controller
         self::view('admin/user/deleteUser', $data);
     }
 
+
+    // USERS INTERESTED TO ADOPT
+
+
+//SHOW ALL USERS INTERESTED TO ADOPT
+    public static function getUsersInterested()
+    {
+
+        $user = new Admin();
+        $user = $user->getUsersInterested();
+
+        $data = [
+            "user" => $user
+        ];
+
+        self::view('admin/user/users-interested', $data);
+    }
+
+
+//SHOW USER INTERESTED TO ADOPT BY ID
+    public static function getUserInterestedById($id)
+    {
+
+        ini_set('display_errors', 1);
+
+        ini_set('display_startup_errors', 1);
+
+        error_reporting(E_ALL);
+
+
+        $user = new Admin();
+        $user = $user->getUserInterestedById($id);
+
+
+        $data = [
+            "id" => $user['id'],
+            "username" => $user['username'],
+            "cat_name" => $user['cat_name'],
+            "email" => $user['email'],
+            "phone" => $user['phone'],
+            "comments" => $user['comments'],
+            "contacted" => $user['contacted']
+
+
+
+        ];
+
+
+        self::view('admin/user/view-user-interested', $data);
+    }
+
+    // VIEW OR EDIT USER TO INTERESTED TO ADOPT BY ID
+    
+
+    public static function viewEditUserInterested($id)
+    {
+
+        ini_set('display_errors', 1);
+
+        ini_set('display_startup_errors', 1);
+
+        error_reporting(E_ALL);
+
+        //SEND DATA
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $user = new Admin();
+            $user = $user->viewEditUserInterested($_POST);
+            $data = [
+                "id" => $_POST['id'],
+                "username" => $_POST['username'],
+                "cat_name" => $_POST['cat_name'],
+                "email" => $_POST['email'],
+                "phone" => $_POST['phone'],
+                "comments" => $_POST['comments'],
+                "contacted" => $_POST['contacted'],
+
+            ];
+
+            //SHOW DATA
+        } else {
+            $user = new Admin();
+            $user = $user->getUserInterestedById($id);
+            $data = [
+                "id" => $user['id'],
+                "username" => $user['username'],
+                "cat_name" => $user['cat_name'],
+                "email" => $user['email'],
+                "phone" => $user['phone'],
+                "comments" => $user['comments'],
+                "contacted" => $user['contacted']
+
+            ];
+        }
+
+        self::view('admin/user/view-user-interested', $data);
+    }
+
+    // DELETE USER TO INTERESTED TO ADOPT BY ID
+
+    public static function deleteUserInterested($id)
+    {
+
+        // IF CLICK BUTTON, USER REQUEST IS DELETED
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $user = new Admin();
+            $user = $user->deleteUserInterested($id);
+            $data = [
+                "id" => $_POST['id'],
+                "username" => $_POST['username'],
+                "cat_name" => $_POST['cat_name'],
+                "email" => $_POST['email'],
+                "phone" => $_POST['phone'],
+                "comments" => $_POST['comments'],
+                "contacted" => $_POST['contacted'],
+
+            ];
+        } else { // SHOW USER REQUEST INFO 
+            $user = new Admin();
+            $user = $user->getUserInterestedById($id);
+            $data = [
+                "id" => $user['id'],
+                "username" => $user['username'],
+                "cat_name" => $user['cat_name'],
+                "email" => $user['email'],
+                "phone" => $user['phone'],
+                "comments" => $user['comments'],
+                "contacted" => $user['contacted']
+
+            ];
+        }
+
+
+        self::view('admin/user/deleteUserInterested', $data);
+    }
+
+
+    //LOGOUT
     public static function logout()
     {
 

@@ -96,15 +96,21 @@ h4 {
      margin-right: auto;
     margin-left: auto;
 }
+.c-cat{
+    width: auto;
+}
 .container-cat{
+    
     
     padding: 30px;
     font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
     font-family: 'Montserrat', sans-serif;
 
 }
 .card{
-    width: 500px;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     
@@ -115,6 +121,7 @@ h4 {
     margin-left: auto;
     
 }
+
 .like-to-know{
     width: 100%;
     margin-right: auto;
@@ -122,6 +129,9 @@ h4 {
 }
 .description-text{
     text-align: justify;
+}
+.pagination{
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -134,9 +144,18 @@ h4 {
 
 /* MEDIA QUERIES */
 
-@media screen and (max-device-width : 480px) {
+@media screen and (max-device-width : 600px) {
     .fa-brands{
         margin-bottom: 2px;
+    }
+    .card{
+        width: 300%;
+        
+        justify-content: center;
+        
+    }
+    .col-6{
+        width: 80%
     }
     
 
