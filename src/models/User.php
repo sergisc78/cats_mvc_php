@@ -18,7 +18,7 @@ class User{
         $this->db = $this->db->connect();
     }
 
-    // CREATE USER
+    // ADD USER
 
     public function singUp()
     {

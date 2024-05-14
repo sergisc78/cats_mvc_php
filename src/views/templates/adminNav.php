@@ -14,7 +14,7 @@
    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 
     <!-- SWEET ALERT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.7/sweetalert2.min.js" integrity="sha512-csaTzpLFmF+Zl81hRtaZMsMhaeQDHO8E3gBkN3y3sCX9B1QSut68NxqcrxXH60BXPUQ/GB3LZzzIq9ZrxPAMTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- BOOTSTRAP CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -106,7 +106,10 @@
                         <a class="nav-link" href="<?php echo URL?>/admin/dashboard">Cats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL?>/admin/user/users-interested">Users interested to adopt</a>
+                        <a class="nav-link" href="<?php echo URL?>/admin/user/users-interested">Users request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo URL?>/admin/user/usersMessages">Messages</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

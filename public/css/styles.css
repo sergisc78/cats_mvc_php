@@ -9,10 +9,7 @@ body {
 }
 
 
-/*HOME.PHP,LOGIN.PHP,REGISTER.PHP*/
-
-
-
+/*HOME.PHP,LOGIN.PHP,REGISTER.PHP,ABOUT US.PHP*/
 
 
 .navbar-brand {
@@ -39,9 +36,15 @@ body {
     font-size: 30px;
     font-family: 'Montserrat', sans-serif;
 }
-.fa-brands{
+
+.fa-brands {
     font-size: 25px;
 }
+
+.catlovers-location{
+
+    margin-top: 90px;
+} 
 
 
 /*LOGIN.PHP,REGISTER.PHP*/
@@ -89,19 +92,21 @@ h4 {
 
 /*ADOPTCAT.PHP*/
 
-#cat_img{
+#cat_img {
     width: 400px;
-     height: 300px;
-     margin-top: 20px;
-     margin-right: auto;
+    height: 300px;
+    margin-top: 20px;
+    margin-right: auto;
     margin-left: auto;
 }
-.c-cat{
+
+.c-cat {
     width: auto;
 }
-.container-cat{
-    
-    
+
+.container-cat {
+
+
     padding: 30px;
     font-size: 20px;
     margin-right: auto;
@@ -109,28 +114,32 @@ h4 {
     font-family: 'Montserrat', sans-serif;
 
 }
-.card{
+
+.card {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    
+
 }
-.back-to-cats{
+
+.back-to-cats {
     width: 50%;
     margin-right: auto;
     margin-left: auto;
-    
+
 }
 
-.like-to-know{
+.like-to-know {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
 }
-.description-text{
+
+.description-text {
     text-align: justify;
 }
-.pagination{
+
+.pagination {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -145,18 +154,20 @@ h4 {
 /* MEDIA QUERIES */
 
 @media screen and (max-device-width : 600px) {
-    .fa-brands{
+    .fa-brands {
         margin-bottom: 2px;
     }
-    .card{
+
+    .card {
         width: 300%;
-        
+
         justify-content: center;
-        
+
     }
-    .col-6{
+
+    .col-6 {
         width: 80%
     }
-    
+
 
 }

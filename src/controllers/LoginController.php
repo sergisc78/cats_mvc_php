@@ -10,7 +10,7 @@ use Sergi\CatsMvc\models\User;
 class LoginController extends Controller
 {
 
-
+    // LOGIN PAGE
     public static function index()
     {
 
@@ -23,10 +23,12 @@ class LoginController extends Controller
         self::view('login');
     }
 
+
+    //LOGIN FUNCTION
     public static function login()
     {
         $login = new User();
-        
+
         $login->login($_POST);
 
         ini_set('display_errors', 1);

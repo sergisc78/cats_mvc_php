@@ -30,6 +30,12 @@ session_start();
 
 $router->get('/', [HomeController::class, 'index']); // Matches The URL /homepage
 
+$router->get('aboutUs',[HomeController::class,'aboutUs']);
+
+$router->get('contactUs',[HomeController::class,'contactUs']);
+
+$router->post('contactUs',[HomeController::class,'contactUsMessage']);
+
 $router->get('/singUp', [SingUpController::class, 'index']);    // Matches The URL /singUp
 
 $router->post('/singUp', [SingUpController::class, 'index']);   // Send data from sing up form
@@ -77,6 +83,12 @@ $router->get('admin/user/deleteUserInterested/{id}', [AdminController::class, 'd
 
 $router->post('admin/user/deleteUserInterested/{id}', [AdminController::class, 'deleteUserInterested']);
 
+$router->get('admin/user/usersMessages', [AdminController::class, 'getMessages']);
+
+$router->get('admin/user/deleteMessage/{id}', [AdminController::class, 'getMessageById']);
+
+$router->post('admin/user/deleteMessage/{id}', [AdminController::class, 'deleteMessage']);
+
 $router->get('admin/logout', [AdminController::class, 'logout']);
 
 
@@ -84,7 +96,7 @@ $router->get('admin/logout', [AdminController::class, 'logout']);
 
 $router->get('user/cats', [UserAdopterController::class, 'getCats']);
 
-$router->get('user/yourRequest/', [UserAdopterController::class, 'yourRequest']);
+$router->get('user/yourRequest/{username}', [UserAdopterController::class, 'yourRequestByUsername']);
 
 $router->get('user/meetCat/{id}', [UserAdopterController::class, 'formMeetCat']);
 

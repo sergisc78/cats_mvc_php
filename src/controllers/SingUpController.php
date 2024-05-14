@@ -9,7 +9,7 @@ use Sergi\CatsMvc\models\User;
 class SingUpController extends Controller
 {
 
-
+    // SING UP PAGE
     public static function index()
     {
 
@@ -19,13 +19,9 @@ class SingUpController extends Controller
 
         error_reporting(E_ALL);
 
-       
-        $user=new User();
+
+        $user = new User();
         $user->singUp($_POST);
         self::view('singUp');
     }
-
-    
-
-   
 }

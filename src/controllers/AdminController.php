@@ -14,7 +14,6 @@ class AdminController extends Controller
     //CATS
 
     // SHOW ALL CATS OF DATABASE
-
     public static function index()
     {
 
@@ -34,7 +33,6 @@ class AdminController extends Controller
 
 
     // ADD CAT
-
     public static function addcat()
     {
         $cat = new Admin();
@@ -83,6 +81,7 @@ class AdminController extends Controller
             $cat = new Admin();
             $cat = $cat->editCat($_POST);
 
+            // IF THERE IS AN IMAGE
             if (!empty($_POST['cat_image'])) {
 
 
@@ -95,7 +94,7 @@ class AdminController extends Controller
                     "cat_image" => $_POST['cat_image'],
                     "cat_description" => $_POST['cat_description']
                 ];
-            } else {
+            } else {  // IF THERE ISN'T AN IMAGE
                 $data = [
                     "id" => $_POST['id'],
                     "cat_name" => $_POST['cat_name'],
@@ -150,7 +149,6 @@ class AdminController extends Controller
             "cat_description" => $cat['cat_description']
 
         ];
-
 
         self::view('admin/deleteCat', $data);
     }
@@ -224,7 +222,7 @@ class AdminController extends Controller
         self::view('admin/user/users', $data);
     }
 
-
+    // SHOW USER BY ID
     public static function getUserById($id)
     {
 
@@ -243,12 +241,7 @@ class AdminController extends Controller
             "id" => $user['id'],
             "username" => $user['username'],
             "role_id" => $user['role_id'],
-
-
-
         ];
-
-
         self::view('admin/user/editUser', $data);
     }
 
@@ -308,12 +301,7 @@ class AdminController extends Controller
             "id" => $user['id'],
             "username" => $user['username'],
             "role_id" => $user['role_id'],
-
-
-
         ];
-
-
         self::view('admin/user/deleteUser', $data);
     }
 
@@ -356,7 +344,7 @@ class AdminController extends Controller
     // USERS INTERESTED TO ADOPT
 
 
-//SHOW ALL USERS INTERESTED TO ADOPT
+    //SHOW ALL USERS INTERESTED TO ADOPT
     public static function getUsersInterested()
     {
 
@@ -371,7 +359,7 @@ class AdminController extends Controller
     }
 
 
-//SHOW USER INTERESTED TO ADOPT BY ID
+    //SHOW USER INTERESTED TO ADOPT BY ID
     public static function getUserInterestedById($id)
     {
 
@@ -394,17 +382,11 @@ class AdminController extends Controller
             "phone" => $user['phone'],
             "comments" => $user['comments'],
             "contacted" => $user['contacted']
-
-
-
         ];
-
-
         self::view('admin/user/view-user-interested', $data);
     }
 
     // VIEW OR EDIT USER TO INTERESTED TO ADOPT BY ID
-    
 
     public static function viewEditUserInterested($id)
     {
@@ -488,6 +470,62 @@ class AdminController extends Controller
         self::view('admin/user/deleteUserInterested', $data);
     }
 
+    //SHOW ALL MESSAGES
+    public static function getMessages()
+    {
+        $user = new Admin();
+        $user = $user->getMessages();
+        $data = ["user" => $user];
+        self::view('admin/user/usersMessages', $data);
+    }
+
+    //GET MESSAGE BY ID TO DELETE IT OR NOT
+    public static function getMessageById($id)
+    {
+
+        $user = new Admin();
+        $user = $user->getMessageById($id);
+
+
+        $data = [
+            "id" => $user['id'],
+            "name" => $user['name'],
+            "email" => $user['email'],
+            "subject" => $user['subject'],
+            "message" => $user['message'],
+
+        ];
+
+
+        self::view('admin/user/deleteMessage', $data);
+    }
+
+
+    //DELETE MESSAGE
+    public static function deleteMessage($id)
+    {
+
+        // SEND DATA
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $user = new Admin();
+            $user = $user->deleteMessage($id);
+            $data =
+                [
+                    "id" => $_POST['id']
+                ];
+        } else { // SHOW DATA
+            $user = new Admin();
+            $user = $user->getMessageById($id);
+            $data =
+                [
+                    "id" => $user['id'],
+                    "name" => $user['name'],
+
+                ];
+        }
+
+        self::view('admin/user/deleteMessage', $data);
+    }
 
     //LOGOUT
     public static function logout()

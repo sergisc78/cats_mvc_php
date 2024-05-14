@@ -17,7 +17,7 @@ class UserAdopterController extends Controller
 {
 
 
-
+  // SHOW ALL CATS
   public static function getCats()
   {
 
@@ -30,6 +30,8 @@ class UserAdopterController extends Controller
     self::view('user/cats', $cats);
   }
 
+
+  //SHOW CAT BY ID
   public static function getCatById($id)
   {
 
@@ -52,6 +54,8 @@ class UserAdopterController extends Controller
     self::view('user/cat', $data);
   }
 
+
+  //FORM TO MEET CAT
   public static function formMeetCat($id)
   {
 
@@ -66,32 +70,26 @@ class UserAdopterController extends Controller
     $data = [
       "id" => $cat['id'],
       "cat_name" => $cat['cat_name'],
-
-
-
     ];
-
-
     self::view('user/meetCat', $data);
   }
 
-  public static function yourRequest()
+
+  // SHOW USERS CAT´S REQUEST
+
+  public static function yourRequestByUsername($username)
   {
 
-    /*$user = new Admin();
-    $user = $user->viewEditUserInterested($username);*/
+    $user = new UserAdopter();
+    $user = $user->yourRequestByUsername($username);
 
-   /* $data = [
-      "username" => $user['username'],
-      "cat_name" => $user['cat_name'],
-      "email" => $user['email'],
-      "comments" => $user['comments'],
 
-    ];*/
+    $data = ["user" => $user];
 
-    self::view('user/yourRequest');
+    self::view("user/yourRequest", $data);
   }
 
+  // LOGOUT
   public static function logout()
   {
 

@@ -52,14 +52,9 @@ class UserAdopter
   }
 
 
-
+// FORM TO MEET CAT
   public function formMeetCat()
   {
-
-
-
-
-    //pasta$result->execute();
 
     if (isset($_POST['meetCat'])) {
 
@@ -71,6 +66,7 @@ class UserAdopter
       $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
       $comments = isset($_POST['comments']) ? $_POST['comments'] : '';
 
+      // IF AN USER HAS MADE THE SAME REQUEST FOR A CAT
       $sql_select = "SELECT username,cat_name FROM formMeetCat WHERE username=:username AND cat_name=:cat_name";
       $result = $this->db->prepare($sql_select);
       $result->bindParam(":username", $username);
@@ -87,9 +83,10 @@ class UserAdopter
         header("refresh:6;");
       } else {
 
-        $sql = "INSERT INTO formMeetCat( id,username,cat_name,email,phone,comments) VALUES (:id,:username,:cat_name,:email,:phone,:comments) ";
+        // INSERT FORM TO MEET CAT
+        $sql = "INSERT INTO formMeetCat( username,cat_name,email,phone,comments) VALUES (:username,:cat_name,:email,:phone,:comments) ";
         $result = $this->db->prepare($sql);
-        $result->bindValue(':id', $id);
+        
         $result->bindValue(':username', $username);
         $result->bindValue(':email', $email);
         $result->bindValue(':cat_name', $cat_name);
@@ -100,7 +97,7 @@ class UserAdopter
         if ($result) {
 
           echo '<div class="alert alert-success alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat,sans-serif;">
-          Great ! We will connect with you as sonner as possible !
+          Great ! We will contact you as sonner as possible !
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
           header("refresh:5");
@@ -116,10 +113,22 @@ class UserAdopter
     }
   }
 
-  public function yourRequest(){
+
+  // SHOW USER REQUEST BY USERNAME
+  public function yourRequestByUsername($username)
+  {
+
+      $sql = "SELECT * FROM formMeetCat WHERE username=:username  ORDER BY dateFormSent";
+      $result = $this->db->prepare($sql);
+      $result->bindValue(':username', $username);
+      $result->execute();
+      return $result->fetchAll();
+     
     
   }
 
+
+  //LOGOUT
   public function logout()
   {
 
@@ -131,8 +140,7 @@ class UserAdopter
           You can not logout !. Something wrong happened !
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-
-      // header("refresh:3,url=http://localhost:81/cats_mvc/admin/dashboard");
+     
     }
   }
 }

@@ -90,19 +90,21 @@
 
   <nav class="navbar navbar-expand-lg bg-dark p-4">
     <div class="container-fluid bg-dark navbar-dark bg-dark">
-      <a class="navbar-brand me-5 mb-3" href="<?php echo URL ?>/admin/dashboard">Catlovers <i class="fa-solid fa-cat"></i> </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand me-5 mb-3" href="<?php echo URL ?>/user/cats">Catlovers <i class="fa-solid fa-cat"></i> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
-            <!-- <a class="nav-link active" aria-current="page" href="../../views/admin/dashboard.php">Home</a>-->
             <a class="nav-link" href="#">User: <?php echo " " . $_SESSION["username"]; ?></a>
           </li>
-          <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL?>/user/yourRequest">Your Request</a>
-                    </li>
+          
+            <li class="nav-item">
+
+              <a class="nav-link" href="http://localhost:81/cats_mvc/user/yourRequest/<?php echo $_SESSION["username"]?>">Your Requests to meet cats</a>
+            </li>
+          
         </ul>
         <form class="d-flex" role="search">
           <a href="<?php echo URL ?>/user/logout" type="button" class="btn btn-outline-primary btn-lg">Logout</a>
@@ -110,3 +112,5 @@
       </div>
     </div>
   </nav>
+
+ 

@@ -12,10 +12,15 @@ require_once("./src/views/templates/adminUser.php");
 
 <?php
 session_start();
+session_unset();
 session_destroy();
 
-?>
 
+
+
+header("Location:http://localhost:81/cats_mvc/");
+
+?>
 
 <div class="container" id="welcome">
   <div class="row">

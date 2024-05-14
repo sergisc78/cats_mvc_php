@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
     <title>Catlovers</title>
 
-
-
     <!-- BOOTSTRAP CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
@@ -24,22 +22,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 
+
 </head>
 
 <body>
 
-    <!-- LOGOUT MESSAGE -->
+    <!-- LOGOUT MESSAGE-->
 
-    <?php
 
-    if (session_destroy()) {
-        echo '<div class="alert alert-success alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat, sans-serif;">
-    Logout sucessfully !
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    }
-
-    ?>
 
 
     <nav class="navbar navbar-expand-lg bg-dark p-4">
@@ -69,17 +59,14 @@
         </div>
     </nav>
 
-    <!-- LOGOUT MESSAGE -->
-
     <?php
 
-    if (session_start()) {
+    if (session_destroy()) {
         echo '<div class="alert alert-success alert-dismissible fade show fixed-top" role="alert" style="margin-top:150px;width:370px;margin-left: auto;margin-right: 40px;font-size:18px;font-family: Montserrat, sans-serif;">
-    Logout sucessfully !
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    
-
+        Logout sucessfully !
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        
     }
     ?>
 

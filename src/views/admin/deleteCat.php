@@ -2,30 +2,12 @@
 
 
 require_once("./src/views/templates/adminNav.php");
-//VARIABLES FROM DASHBOARD.PHP
-
-
-
-
-/*
-
-
-
-$cat_image = $_GET['image'];
-$cat_sex = $_GET['sex'];
-$cat_age = $_GET['age'];
-$cat_category = $_GET['category'];
-$cat_description = $_GET['descr'];*/
-
-
 
 
 
 ?>
 
 <!-- FORM  DELETE  CAT -->
-
-
 
 
 <div class="container mt-5" style="width: 15000px;">
